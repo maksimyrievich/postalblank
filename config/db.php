@@ -5,5 +5,5 @@ return [
     'dsn' => 'mysql:host=localhost;dbname=serverpostalblank',
     'username' => 'root',
     'password' => '',
-    'charset' => 'utf8',
+    'tablePrefix' => 'keys_',
 ];
