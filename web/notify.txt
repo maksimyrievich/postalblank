@@ -1,0 +1,11 @@
+notification_type => p2p-incoming
+amount => 370.24
+datetime => 2017-03-31T19:06:47Z
+codepro => false
+sender => 41001000040
+sha1_hash => d1f4bc1bcee8d9e34c8171528e5950c6ea99f986
+test_notification => true
+operation_label => 
+operation_id => test-notification
+currency => 643
+label => 
