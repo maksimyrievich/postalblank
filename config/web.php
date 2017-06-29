@@ -37,7 +37,7 @@ $config = [
                 'charset' => 'UTF-8',  // - кодировка писем UTF-8
                 'from' => ['support@postalblank.ru' => 'POSTALBLANK.RU'],  //- задаем e-mail адрес и имя отправителя по умолчанию
             ],
-            'useFileTransport' => false, // - флаг указывающий на то, что бы письма не отправлялись а сохранялись в папку \runtime\mail
+            'useFileTransport' => true, // - флаг указывающий на то, что бы письма не отправлялись а сохранялись в папку \runtime\mail
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.beget.com', // SMTP сервер почтовика
@@ -61,7 +61,7 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'suffix' => '.html',
+            //'suffix' => '.html',
             'rules' => [
                 //'account/<id:\d+>' => 'account/view',
                 [
@@ -75,7 +75,7 @@ $config = [
                     'suffix' => '',
                 ],
                 
-                '<action:(index|plagins|contact|download)>' => 'site/<action>',//любой из этих экшенов после http://postalblank.ru/<action> будет идти на http://postalblank.ru/site/<action> или \w+
+                '<action:(index|signup|plagins|contact|download)>' => 'site/<action>',//любой из этих экшенов после http://postalblank.ru/<action> будет идти на http://postalblank.ru/site/<action> или \w+
             ],
         ],
 

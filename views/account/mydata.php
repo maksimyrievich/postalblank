@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="panel" style="margin: 0px 0px 0px 0px">
                 <div class="panel-primary">
                     <div class="panel-heading" style="text-align: center">
-                        <i class="glyphicon glyphicon-user"></i> <?=Yii::$app->user->identity->firstusername .' '.Yii::$app->user->identity->lastusername ?>
+                        <i class="glyphicon glyphicon-user"></i> <?=Yii::$app->user->identity->username ?>
                     </div>
                     <?= UserInfoWidget::widget();?>
                 </div>
