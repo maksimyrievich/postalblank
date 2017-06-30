@@ -94,6 +94,9 @@ AppAsset::register($this);
                             <li ><!-- PAGES -->
                                 <a href= "<?= Url::to (['/plagins']);?>"><i class = "glyphicon glyphicon-download-alt"></i> ПЛАГИНЫ ДЛЯ CMS</a>
                             </li>
+                            <li ><!-- PAGES -->
+                                <a href= "<?= Url::to (['/contact']);?>"><i class = "glyphicon glyphicon-download-alt"></i> КОНТАКТ</a>
+                            </li>
                             <?php if(Yii::$app->user->isGuest): ?>
                             <li ><!-- FEATURES -->
                                 <a href="<?= Url::to (['/signup']);?>"><i class = "glyphicon glyphicon-user"></i> SIGN UP</a>

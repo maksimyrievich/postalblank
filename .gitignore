@@ -30,3 +30,4 @@ tests/_output/*
 tests/_support/_generated
 /.htaccess
 /web/.htaccess
+/web/plaginsbody/plagin1.txt
