@@ -72,7 +72,7 @@ class ProtocolForm extends Model
     {
         //Смотрим есть ли в базе такой ключ транзакции. Если есть ключ в базе,
         //в переменную $user грузим данные того кому ключ принадлежит
-        $user = UsersTable::findOne(['key_secret' => $this->key_tranzaction]);
+        $user = User::findOne(['key_secret' => $this->key_tranzaction]);
         //Если в $user ничего нет, тогда регистрируем ошибку проверки ключа
         if (empty($user)){
                 $this->addError('Проверка ключа транзакции', '\''.$this->key_tranzaction.'\'-этот ключ не найден в БД');

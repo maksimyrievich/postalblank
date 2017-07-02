@@ -9,7 +9,7 @@ use Yii;
 use app\models\TranzactionTable;
 use app\models\TranzactionTableSearch;
 use app\models\PlaginsTable;
-use app\models\UsersTable;
+use app\models\User;
 use yii\bootstrap\Html;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -207,7 +207,7 @@ class TranzactionController extends Controller
             $tranzaction->userid_tranzaction = $model->user->id;
             $tranzaction->status_tranzaction = 'запрос бланков';    //
             $tranzaction->save();
-            $user = UsersTable::findOne($model->user->id);
+            $user = User::findOne($model->user->id);
             $user->balance = $tranzaction->balance;
             $user->save();
 
