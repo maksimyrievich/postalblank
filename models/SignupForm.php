@@ -53,12 +53,17 @@ class SignupForm extends Model
             $user->generateEmailConfirmToken();
 
             if ($user->save()) {
-                \Yii::$app->mailer->getView()->params['userName'] = $user->username;   //передаем параметры в layout, в данном случае имя пользователя
+                \Yii::$app->mailer->getView()->params['userName'] = ', '.$user->username.'.';   //передаем параметры в layout, в данном случае имя пользователя
                                                                                         //можно конечно передавать и любые другие параметры
                 Yii::$app->mailer->compose('EmailConfirm', ['user' => $user])
                     ->setTo($this->email)
                     ->setSubject('Код подтверждения адреса электронной почты')
                     ->send();
+
+                // Reset layout params
+                \Yii::$app->mailer->getView()->params['userName'] = null; //необходимо очистить параметры, которые мы передавали в layout
+                //Эта очистка нужна для того, что бы эти параметры не передались в следующее письмо, которые может быть отправлено где либо в другом месте кода.
+
                 return $user;
             }
         }

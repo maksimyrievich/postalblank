@@ -35,7 +35,7 @@ $config = [
             'textLayout' => 'layouts/main-text',
             'messageConfig' => [
                 'charset' => 'UTF-8',  // - кодировка писем UTF-8
-                'from' => ['support@postalblank.ru' => 'POSTALBLANK.RU'],  //- задаем e-mail адрес и имя отправителя по умолчанию
+                'from' => ['support@postalblank.ru' => 'Postalblank.ru'],  //- задаем e-mail адрес и имя отправителя по умолчанию
             ],
             'useFileTransport' => true, // - флаг указывающий на то, что бы письма не отправлялись а сохранялись в папку \runtime\mail
             'transport' => [
