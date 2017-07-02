@@ -99,7 +99,7 @@ AppAsset::register($this);
                             </li>
                             <?php if(Yii::$app->user->isGuest): ?>
                             <li ><!-- FEATURES -->
-                                <a href="<?= Url::to (['/signup']);?>"><i class = "glyphicon glyphicon-floppy-saved"></i> РЕГИСТРАЦИЯ</a>
+                                <a href="<?= Url::to (['/signup']);?>"><i class = "glyphicon glyphicon-registration-mark"></i> РЕГИСТРАЦИЯ</a>
                             </li>
                             <?php else :?><?php endif;?>
                             <li ><!-- FEATURES -->
