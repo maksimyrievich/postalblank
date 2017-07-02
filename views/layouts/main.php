@@ -92,14 +92,14 @@ AppAsset::register($this);
                                 <a href="<?= Url::to("/")?>"><i class = "glyphicon glyphicon-home"></i> ГЛАВНАЯ</a>
                             </li>
                             <li ><!-- PAGES -->
-                                <a href= "<?= Url::to (['/plagins']);?>"><i class = "glyphicon glyphicon-download-alt"></i> ПЛАГИНЫ ДЛЯ CMS</a>
+                                <a href= "<?= Url::to (['/plagins']);?>"><i class = "glyphicon glyphicon-download"></i> ПЛАГИНЫ ДЛЯ CMS</a>
                             </li>
                             <li ><!-- PAGES -->
-                                <a href= "<?= Url::to (['/contact']);?>"><i class = "glyphicon glyphicon-download-alt"></i> КОНТАКТ</a>
+                                <a href= "<?= Url::to (['/contact']);?>"><i class = "glyphicon glyphicon-send"></i> КОНТАКТ</a>
                             </li>
                             <?php if(Yii::$app->user->isGuest): ?>
                             <li ><!-- FEATURES -->
-                                <a href="<?= Url::to (['/signup']);?>"><i class = "glyphicon glyphicon-user"></i> SIGN UP</a>
+                                <a href="<?= Url::to (['/signup']);?>"><i class = "glyphicon glyphicon-floppy-saved"></i> РЕГИСТРАЦИЯ</a>
                             </li>
                             <?php else :?><?php endif;?>
                             <li ><!-- FEATURES -->
