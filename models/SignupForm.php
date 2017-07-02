@@ -47,6 +47,7 @@ class SignupForm extends Model
             $user = new User();
             $user->username = $this->username;
             $user->email = $this->email;
+            $user->password = $this->password;
             $user->setPassword($this->password);
             $user->status = User::STATUS_WAIT;
             $user->generateAuthKey();
@@ -54,9 +55,9 @@ class SignupForm extends Model
 
             if ($user->save()) {
                 \Yii::$app->mailer->getView()->params['userName'] = ', '.$user->username.'.';   //передаем параметры в layout, в данном случае имя пользователя
-                                                                                        //можно конечно передавать и любые другие параметры
+                                                                                                //можно конечно передавать и любые другие параметры
                 Yii::$app->mailer->compose('EmailConfirm', ['user' => $user])
-                    ->setTo($this->email)
+                    ->setTo($user->email)
                     ->setSubject('Код подтверждения адреса электронной почты')
                     ->send();
 

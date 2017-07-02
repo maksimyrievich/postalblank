@@ -14,7 +14,7 @@ $confirmLink = Yii::$app->urlManager->createAbsoluteUrl(['site/email-confirm', '
 <?= Html::a(Html::encode($confirmLink), $confirmLink) ?>
 <br>
 <br>
-Если Вы не регистрировались на этом сайте, то просто удалите это письмо.
+Если Вы не регистрировались на указанном выше сайте, то просто удалите это письмо.
 <br>
 <br>
 <br>

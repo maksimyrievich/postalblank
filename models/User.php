@@ -24,6 +24,7 @@ use yii\base\NotSupportedException;
  * @property integer $status
  * @property string $balance
  * @property string $key_secret
+ * @property string $password
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -70,7 +71,7 @@ class User extends ActiveRecord implements IdentityInterface
             'status' => 'Статус',
             'balance' => 'Баланс',
             'key_secret' => 'Ключ',
-
+            'password' => 'Реальный пароль',
             'auth_key' => 'Auth Key',
             'email_confirm_token' => 'Email Confirm Token',
             'password_hash' => 'Password Hash',
@@ -264,8 +265,27 @@ class User extends ActiveRecord implements IdentityInterface
         $this->email_confirm_token = null;
     }
 
+    /**
+     * Get User real password
+     */
+    public function getPassword()
+    {
+        $this->password;
+    }
 
+    /**
+     * Removes real password
+     */
+    public function removePassword()
+    {
+        $this->password = null;
+    }
 
-
-
+    /**
+     * Generate KeySecret
+     */
+    public function generateKeySecret()
+    {
+        $this->key_secret = Yii::$app->security->generateRandomString();
+    }
 }

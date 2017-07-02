@@ -41,8 +41,23 @@ class EmailConfirmForm extends Model
         $user = $this->_user;
         $user->status = User::STATUS_ACTIVE;
         $user->removeEmailConfirmToken();
+        $user->balance = 10;
+        $user->generateKeySecret();
+        $password = $user->password;
+        $user->removePassword();
 
-        return $user->save();
+        if($user->save()) {
+            Yii::$app->mailer->getView()->params['userName'] = ', ' . $user->username . '.';   //передаем параметры в layout, в данном случае имя пользователя
+            Yii::$app->mailer->compose('RegistrationData', ['user' => $user, 'password' => $password])
+                ->setTo($user->email)
+                ->setSubject('Регистрационные данные')
+                ->send();
+            // Reset layout params
+            Yii::$app->mailer->getView()->params['userName'] = null; //необходимо очистить параметры, которые мы передавали в layout
+            //Эта очистка нужна для того, что бы эти параметры не передались в следующее письмо, которые может быть отправлено где либо в другом месте кода.
+            return true;
+        }
+        return false;
     }
 }
 

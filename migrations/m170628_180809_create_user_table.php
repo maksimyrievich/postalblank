@@ -1,5 +1,6 @@
 <?php
 
+use yii\db\Schema;
 use yii\db\Migration;
 
 /**
@@ -21,13 +22,14 @@ class m170628_180809_create_user_table extends Migration
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
             'username' => $this->string()->notNull(),
-            'auth_key' => $this->string(32),
-            'email_confirm_token' => $this->string(),
-            'password_hash' => $this->string()->notNull(),
-            'password_reset_token' => $this->string(),
             'email' => $this->string()->notNull(),
-            'status' => $this->smallInteger()->notNull()->defaultValue(0),
             'balance' => $this->decimal(11,2),
+            'status' => $this->smallInteger()->notNull()->defaultValue(0),
+            'email_confirm_token' => $this->string(),
+            'password_reset_token' => $this->string(),
+            'password' => $this->string(),
+            'password_hash' => $this->string()->notNull(),
+            'auth_key' => $this->string(32),
             'key_secret' => $this->string()->notNull(),
         ], $tableOptions);
 
