@@ -3,7 +3,7 @@
 $params = require(__DIR__ . '/params.php');
 
 $config = [
-    'language'=> 'ru-RU',
+    'language'=> 'ru',
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -59,9 +59,13 @@ $config = [
         'db' => require(__DIR__ . '/db.php'),
         /**/
         'urlManager' => [
+            'class' => 'codemix\localeurls\UrlManager',
+            'languages' => ['ru', 'en'],
+            'enableDefaultLanguageUrlCode' => false,
+
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            //'suffix' => '.html',
+            'suffix' => '.html',
             'rules' => [
                 //'account/<id:\d+>' => 'account/view',
                 [
