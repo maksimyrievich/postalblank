@@ -20,7 +20,7 @@ use yii\helpers\HtmlPurifier;
             <h3 class="media-heading"><?= Html::encode($model->plagin_name) ?></h3>
             <p><?= HtmlPurifier::process($model->description_RU) ?></p>
             <p><?= Html::a('Скачать', ['download', 'id' => $model->id], ['class' => 'btn btn-primary']) ?></p>
-            Количество скачиваний: <? include("plaginsbody/plagin".$model->id.".txt");?>
+            Количество скачиваний: <? include(Yii::$app->basePath."/plaginsbody/plagin".$model->id.".txt");?>
         </div>
     </div>
 </div>
