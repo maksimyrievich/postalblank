@@ -8,7 +8,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Вход в личный кабинет';
+$this->title = Yii::t('translate','TITLE_LOGIN_MY_ACCOUNT');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">

@@ -1,15 +1,12 @@
 <?php
 
+
 use yii\bootstrap\Html;
+use Yii;
 
 if(\Yii::$app->language == 'ru'):
-    echo Html::a('Go to English', array_merge(
-        \Yii::$app->request->get(),
-        [\Yii::$app->controller->route, 'language' => 'en']
-    ));
+    echo Yii::t('translate','NAV_LANG_RUSSIAN');
 else:
-    echo Html::a('Перейти на русский', array_merge(
-        \Yii::$app->request->get(),
-        [\Yii::$app->controller->route, 'language' => 'ru']
-    ));
+    echo Yii::t('translate','NAV_LANG_ENGLISH');
+
 endif;

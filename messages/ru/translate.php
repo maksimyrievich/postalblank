@@ -11,6 +11,8 @@ return [
     'TITLE_CONTACT' => 'Написать нам',
     //Меню регистрация
     'TITLE_SIGNUP' => 'Регистрация',
-    '' => '',
-    '' => '',
+    //Вход в личный кабинет
+    'TITLE_LOGIN_MY_ACCOUNT' => 'Вход в личный кабинет',
+    'NAV_LANG_ENGLISH' => 'Английский',
+    'NAV_LANG_RUSSIAN' => 'Русский',
 ];

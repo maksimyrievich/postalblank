@@ -8,10 +8,12 @@ return [
     'NAV_MY_CABINET' => 'My account',
     'NAV_LANG_RUSSIAN' => 'Russian',
     //Меню контакт
-    'TITLE_CONTACT' => 'Contakt',
+    'TITLE_CONTACT' => 'Contact',
     //Меню регистрация
     'TITLE_SIGNUP' => 'Signup',
     '' => '',
-    '' => '',
-    '' => '',
+    //Вход в личный кабинет
+    'TITLE_LOGIN_MY_ACCOUNT' => 'Login to my account',
+    'NAV_LANG_ENGLISH' => 'English',
+    'NAV_LANG_RUSSIAN' => 'Russian',
 ];

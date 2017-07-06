@@ -90,7 +90,7 @@ AppAsset::register($this);
                         -->
                         <ul id="topMain" class="nav nav-pills nav-main ">
                             <li ><!-- HOME -->
-                                <a href="<?= Url::to("/")?>"><i class = "glyphicon glyphicon-home"></i> <?=Yii::t('translate', 'NAV_HOME')?></a>
+                                <a href="<?= Url::to("/index.html")?>"><i class = "glyphicon glyphicon-home"></i> <?=Yii::t('translate', 'NAV_HOME')?></a>
                             </li>
                             <li ><!-- PAGES -->
                                 <a href= "<?= Url::to (['/plagins']);?>"><i class = "glyphicon glyphicon-download"></i> <?=Yii::t('translate', 'NAV_PLAGINS')?></a>
@@ -107,12 +107,12 @@ AppAsset::register($this);
                                 <a href="<?= Url::to (['/account/login']);?>"><i class = "glyphicon glyphicon-user"></i> <?=Yii::t('translate', 'NAV_MY_CABINET')?></a>
                             </li>
                             <li class="dropdown">
-                                <a class="dropdown-toggle" href="#"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/ru.png")?>" width="16" height="11" alt="lang" />
-                                    <?=Yii::t('translate', 'NAV_LANG_RUSSIAN')?>
+                                <a class="dropdown-toggle" href="#"><img class="flag-lang" src="<?= $this->render('select-flag')?>" width="16" height="11" alt="lang" />
+                                    <?=$this->render('select-language')?>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a  href="<?= Url::to(['/index', 'language' => 'en']);?>"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/us.png")?>" width="16" height="11" alt="lang" /> ENGLISH</a></li>
-                                    <li><a  href="<?= Url::to(['/index', 'language' => 'ru']);?>"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/ru.png")?>" width="16" height="11" alt="lang" /> РУССКИЙ</a></li>
+                                    <li><a  href="<?= Url::to(['/index', 'language' => 'en']);?>"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/us.png")?>" width="16" height="11" alt="lang" /> <?=Yii::t('translate', 'NAV_LANG_ENGLISH')?></a></li>
+                                    <li><a  href="<?= Url::to(['/index', 'language' => 'ru']);?>"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/ru.png")?>" width="16" height="11" alt="lang" /> <?=Yii::t('translate', 'NAV_LANG_RUSSIAN')?></a></li>
                                     </ul>
                             </li>
                         </ul>
