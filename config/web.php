@@ -3,6 +3,7 @@
 $params = require(__DIR__ . '/params.php');
 
 $config = [
+    'sourceLanguage'=>'en',
     'language'=> 'ru',
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
@@ -59,30 +60,32 @@ $config = [
         'db' => require(__DIR__ . '/db.php'),
         /**/
         'urlManager' => [
+            //Настройки языкового Url менеджера "codemix". Устанавливается через composer.
             'class' => 'codemix\localeurls\UrlManager',
             'languages' => ['ru', 'en'],
-            'enableDefaultLanguageUrlCode' => false,
-
+            //Общие настройки Url менеджера.
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'suffix' => '.html',
             'rules' => [
                 //'account/<id:\d+>' => 'account/view',
-                [
-                    'pattern' => '/plaginsbody/plgJshoppPostalBlank.zip',
-                    'route' => 'plaginsbody/plgJshoppPostalBlank.zip',
-                    'suffix' => '',
-                ],
-                [
-                    'pattern' => '/',
-                    'route' => 'site/index',
-                    'suffix' => '',
-                ],
-                
+                ['pattern' => '/','route' => 'site/index','suffix' => ''],
                 '<action:(index|signup|plagins|contact|download)>' => 'site/<action>',//любой из этих экшенов после http://postalblank.ru/<action> будет идти на http://postalblank.ru/site/<action> или \w+
             ],
         ],
-
+        //Блок настроек для интернационализации сайта i18n.
+        'i18n' => [
+            'translations' => [
+                //Название файлов в папке интернационализации будет "translate.php".
+                'translate*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    //Путь к папке и ее название - "messages".
+                    'basePath' => '@app/messages',
+                    //Включаем принудительный перевод всех языков.
+                    'forceTranslation' => true,
+                ],
+            ],
+        ],
         'formatter' => [
             'class' => 'yii\i18n\Formatter',
             'defaultTimeZone' => 'Europe/Moscow',

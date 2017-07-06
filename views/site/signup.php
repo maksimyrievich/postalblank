@@ -8,7 +8,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\SignupForm */
 
-$this->title = 'Signup';
+$this->title = Yii::t('translate','TITLE_SIGNUP');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-default-signup">

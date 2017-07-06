@@ -3,6 +3,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+use Yii;
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
@@ -70,7 +71,7 @@ AppAsset::register($this);
                 </button>
                 <!-- LOGO -->
                 <a class="logo pull-left" href="index.html">
-                    <img src="<?= Url::to("@web/web/AssetsSmarty/images/logo_light_postalblank.ru.png")?>" alt="" />
+                    <img src="/web/AssetsSmarty/images/logo_light_postalblank.ru.png" alt="" />
                 </a>
                 <!--
                 Top Nav
@@ -89,32 +90,30 @@ AppAsset::register($this);
                         -->
                         <ul id="topMain" class="nav nav-pills nav-main ">
                             <li ><!-- HOME -->
-                                <a href="<?= Url::to("/")?>"><i class = "glyphicon glyphicon-home"></i> ГЛАВНАЯ</a>
+                                <a href="<?= Url::to("/")?>"><i class = "glyphicon glyphicon-home"></i> <?=Yii::t('translate', 'NAV_HOME')?></a>
                             </li>
                             <li ><!-- PAGES -->
-                                <a href= "<?= Url::to (['/plagins']);?>"><i class = "glyphicon glyphicon-download"></i> ПЛАГИНЫ ДЛЯ CMS</a>
+                                <a href= "<?= Url::to (['/plagins']);?>"><i class = "glyphicon glyphicon-download"></i> <?=Yii::t('translate', 'NAV_PLAGINS')?></a>
                             </li>
                             <li ><!-- PAGES -->
-                                <a href= "<?= Url::to (['/contact']);?>"><i class = "glyphicon glyphicon-send"></i> КОНТАКТ</a>
+                                <a href= "<?= Url::to (['/contact']);?>"><i class = "glyphicon glyphicon-send"></i> <?=Yii::t('translate', 'NAV_CONTACT')?></a>
                             </li>
                             <?php if(Yii::$app->user->isGuest): ?>
                             <li ><!-- FEATURES -->
-                                <a href="<?= Url::to (['/signup']);?>"><i class = "glyphicon glyphicon-registration-mark"></i> РЕГИСТРАЦИЯ</a>
+                                <a href="<?= Url::to (['/signup']);?>"><i class = "glyphicon glyphicon-registration-mark"></i> <?=Yii::t('translate', 'NAV_SIGNUP')?></a>
                             </li>
                             <?php else :?><?php endif;?>
                             <li ><!-- FEATURES -->
-                                <a href="<?= Url::to (['/account/login']);?>"><i class = "glyphicon glyphicon-user"></i> МОЙ КАБИНЕТ</a>
+                                <a href="<?= Url::to (['/account/login']);?>"><i class = "glyphicon glyphicon-user"></i> <?=Yii::t('translate', 'NAV_MY_CABINET')?></a>
                             </li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" href="#"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/ru.png")?>" width="16" height="11" alt="lang" />
-                                    РУССКИЙ
+                                    <?=Yii::t('translate', 'NAV_LANG_RUSSIAN')?>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a  href="#"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/us.png")?>" width="16" height="11" alt="lang" /> ENGLISH</a></li>
-                                    <li><a  href="#"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/de.png")?>" width="16" height="11" alt="lang" /> GERMAN</a></li>
-                                    <li><a  href="#"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/ru.png")?>" width="16" height="11" alt="lang" /> РУССКИЙ</a></li>
-                                    <li><a  href="#"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/it.png")?>" width="16" height="11" alt="lang" /> ITALIAN</a></li>
-                                </ul>
+                                    <li><a  href="<?= Url::to(['/index', 'language' => 'en']);?>"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/us.png")?>" width="16" height="11" alt="lang" /> ENGLISH</a></li>
+                                    <li><a  href="<?= Url::to(['/index', 'language' => 'ru']);?>"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/ru.png")?>" width="16" height="11" alt="lang" /> РУССКИЙ</a></li>
+                                    </ul>
                             </li>
                         </ul>
                     </nav>
@@ -257,7 +256,7 @@ AppAsset::register($this);
                 </li>
                 <!-- /Yandex.Metrika informer -->
             </ul>
-            &copy; 2017 - <?= date('Y') ?> POSTALBLANK.RU   <!-- © All Rights Reserved, Company LTD -->
+            &copy; 2017 - <?= date('Y') ?> POSTALBLANK.RU  | <?= $this->render('select-language') ?> <!-- © All Rights Reserved, Company LTD -->
         </div>
     </div>
 

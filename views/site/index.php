@@ -2,10 +2,10 @@
 
 /* @var $this yii\web\View */
 
-
+use yii\helpers\Html;
 
 //$this->title = 'Joomshopping заполнение почтовых бланков';
-$this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => '@web/'];
+$this->params['breadcrumbs'][] = ['label' => $this->title];
 ?>
 
 <!-- SWIPER SLIDER -->
@@ -25,7 +25,7 @@ Classes:
     <div class="swiper-container" data-effect="fade" data-autoplay="false">
         <div class="swiper-wrapper">
             <!-- SLIDE 1 -->
-            <div class="swiper-slide" style="background-image: url('web/AssetsSmarty/images/demo/1200x800/pochta1415964099720.jpg');">
+            <div class="swiper-slide" style="background-image: url('/web/AssetsSmarty/images/demo/1200x800/pochta1415964099720.jpg');">
                 <div class="overlay dark-5"><!-- dark overlay [1 to 9 opacity] --></div>
                 <div class="display-table">
                     <div class="display-table-cell vertical-align-middle">
@@ -53,8 +53,8 @@ Classes:
             </div>
             <div class="col-xs-12 col-md-12 col-lg-5">
                 <div class=" text-center wow fadeInLeft" data-wow-delay="0.8s">
-                    <a class="image-hover lightbox "  href="web/AssetsSmarty/images/demo/1200x800/gf01a201311250700.jpg" data-plugin-options='{"type":"image"}'>
-                        <img class="img-responsive" src="web/AssetsSmarty/images/demo/1200x800/gf01a201311250700.jpg" alt="" />
+                    <a class="image-hover lightbox "  href="/web/AssetsSmarty/images/demo/1200x800/gf01a201311250700.jpg" data-plugin-options='{"type":"image"}'>
+                        <img class="img-responsive" src="/web/AssetsSmarty/images/demo/1200x800/gf01a201311250700.jpg" alt="" />
                     </a>
                 </div>
             </div>
@@ -83,8 +83,8 @@ Classes:
             </div>
             <div class="col-xs-12 col-md-12 col-lg-5">
                 <div class="text-center wow fadeInRight" data-wow-delay="0.8s">
-                    <a class="image-hover lightbox" href="web/AssetsSmarty/images/demo/1200x800/Business-project.jpg" data-plugin-options='{"type":"image"}'>
-                        <img class="img-responsive" src="web/AssetsSmarty/images/demo/1200x800/Business-project.jpg" alt="" />
+                    <a class="image-hover lightbox" href="/web/AssetsSmarty/images/demo/1200x800/Business-project.jpg" data-plugin-options='{"type":"image"}'>
+                        <img class="img-responsive" src="/web/AssetsSmarty/images/demo/1200x800/Business-project.jpg" alt="" />
                     </a>
                 </div>
             </div>

@@ -259,7 +259,7 @@ class SiteController extends Controller
         }
         download:
         //Блок кода учёта количества скачиваний.
-        $file=fopen(Yii::$app->basePath."/plaginsbody/plagin".$id.".txt","a+");
+        $file=fopen(Yii::$app->basePath."/site_content/plaginsbody/plagin".$id.".txt","a+");
         flock($file,LOCK_EX);
         $count=fread($file,100);
         $count++;
@@ -269,7 +269,7 @@ class SiteController extends Controller
         fclose($file);
         //return $this->redirect($plagin->plagin_path);
         //$this->path = realpath(Yii::$app->basePath . '/plaginsbody/');
-        return Yii::$app->response->sendFile(Yii::$app->basePath.'/plaginsbody/plgJshoppPostalBlank.zip');
+        return Yii::$app->response->sendFile(Yii::$app->basePath.'/site_content/plaginsbody/plgJshoppPostalBlank.zip');
     }
 }
 
