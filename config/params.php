@@ -2,7 +2,7 @@
 
 return [
     'adminEmail' => 'admin@example.com',
-    'supportEmail' => 'info@site.com',
+    'supportEmail' => 'support@postalblank.ru',
     'user.passwordResetTokenExpire' => 3600,
 
 ];

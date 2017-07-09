@@ -18,6 +18,7 @@ use app\models\PasswordResetRequestForm;
 use app\models\PasswordResetForm;
 use app\models\User;
 use app\models\GenerateMail;
+use yii\web\UploadedFile;
 
 class SiteController extends Controller
 {
@@ -95,10 +96,18 @@ class SiteController extends Controller
          Бланки Почты России. Заполнение почтовых бланков в один клик.']);
 
         $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['email'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
+        if ($user = Yii::$app->user->identity) {
+            $model->name = $user->username;
+            $model->email = $user->email;
+        }
 
-            return $this->refresh();
+        if ($model->load(Yii::$app->request->post())){
+            $model->file = UploadedFile::getInstance($model, 'file');
+            if($model->upload()){
+                $model->contact(Yii::$app->params['supportEmail']);
+                Yii::$app->session->setFlash('contactFormSubmitted');
+                return $this->refresh();
+            }
         }
         return $this->render('contact', [
             'model' => $model,
@@ -132,8 +141,10 @@ class SiteController extends Controller
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
-                Yii::$app->getSession()->setFlash('success', 'Подтвердите ваш электронный адрес.');
-                return $this->goHome();
+                Yii::$app->session->setFlash('signupFormSubmitted');
+
+                return $this->refresh();
+
             }
         }
 

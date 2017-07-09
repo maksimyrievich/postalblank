@@ -15,20 +15,23 @@ class ContactForm extends Model
     public $subject;
     public $body;
     public $verifyCode;
+    public $file;
 
-
-    /**
+     /**
      * @return array the validation rules.
      */
     public function rules()
     {
         return [
             // name, email, subject and body are required
-            [['name', 'email'], 'required'],
+            [['name', 'email','subject','body'], 'required', 'message' => Yii::t('translate','MESS_VALID_REQUIRED')],
             // email has to be a valid email address
             ['email', 'email'],
             // verifyCode needs to be entered correctly
             ['verifyCode', 'captcha'],
+            //Файл может быть загружен только с расширением png, jpg.
+            [['file'], 'file', 'extensions' => 'png, jpg, rar, zip', 'wrongExtension' => Yii::t('translate','MESS_VALID_EXTENSION_FILE')],
+            [['file'], 'file', 'maxSize' => 3145728, 'tooBig' => Yii::t('translate','MESS_VALID_MAX_SIZE_FILE')],
         ];
     }
 
@@ -49,16 +52,27 @@ class ContactForm extends Model
      */
     public function contact($email)
     {
-        if ($this->validate()) {
-            Yii::$app->mailer->compose()
-                ->setTo($email)
-                ->setFrom([$this->email => $this->name])
-                ->setSubject($this->subject)
-                ->setTextBody($this->body)
-                ->send();
+        Yii::$app->mailer->compose()
+        ->setTo($email)
+        ->setFrom([$email => $this->name.' с postalblank.ru'])
+        ->setReplyTo([$this->email => $this->name])
+        ->setSubject($this->subject)
+        ->setTextBody($this->body)
+        ->attach(Yii::$app->basePath.'/uploads/' . $this->file->baseName . '.' . $this->file->extension)
+        ->send();
+        return true;
+    }
 
-            return true;
+    public function upload()
+    {
+        if ($this->validate()) {
+            if($this->file != null) {
+                $this->file->saveAs(Yii::$app->basePath . '/uploads/' . $this->file->baseName . '.' . $this->file->extension);
+            }
+                return true;
+
+        } else {
+            return false;
         }
-        return false;
     }
 }

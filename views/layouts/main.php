@@ -3,7 +3,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-use Yii;
+
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
@@ -61,7 +61,7 @@ AppAsset::register($this);
     .clearfix		= required for mobile menu, do not remove!
     Example Usage:  class="clearfix sticky header-sm transparent noborder"
     -->
-    <div id="header" class="sticky dark noborder clearfix">
+    <div id="header" class="sticky dark noborder header-sm clearfix">
         <!-- TOP NAV -->
         <header id="topNav">
             <div class="full-container"><!-- add .full-container for fullwidth -->
@@ -90,7 +90,7 @@ AppAsset::register($this);
                         -->
                         <ul id="topMain" class="nav nav-pills nav-main ">
                             <li ><!-- HOME -->
-                                <a href="<?= Url::to("/index.html")?>"><i class = "glyphicon glyphicon-home"></i> <?=Yii::t('translate', 'NAV_HOME')?></a>
+                                <a href="<?= Url::to("/")?>"><i class = "glyphicon glyphicon-home"></i> <?=Yii::t('translate', 'NAV_HOME')?></a>
                             </li>
                             <li ><!-- PAGES -->
                                 <a href= "<?= Url::to (['/plagins']);?>"><i class = "glyphicon glyphicon-download"></i> <?=Yii::t('translate', 'NAV_PLAGINS')?></a>
@@ -111,8 +111,8 @@ AppAsset::register($this);
                                     <?=$this->render('select-language')?>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a  href="<?= Url::to(['/index', 'language' => 'en']);?>"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/us.png")?>" width="16" height="11" alt="lang" /> <?=Yii::t('translate', 'NAV_LANG_ENGLISH')?></a></li>
-                                    <li><a  href="<?= Url::to(['/index', 'language' => 'ru']);?>"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/ru.png")?>" width="16" height="11" alt="lang" /> <?=Yii::t('translate', 'NAV_LANG_RUSSIAN')?></a></li>
+                                    <li><a  href="<?= Url::to([Yii::$app->controller->route, 'language' => 'en']);?>"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/us.png")?>" width="16" height="11" alt="lang" /> <?=Yii::t('translate', 'NAV_LANG_ENGLISH')?></a></li>
+                                    <li><a  href="<?= Url::to([Yii::$app->controller->route, 'language' => 'ru']);?>"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/ru.png")?>" width="16" height="11" alt="lang" /> <?=Yii::t('translate', 'NAV_LANG_RUSSIAN')?></a></li>
                                     </ul>
                             </li>
                         </ul>
