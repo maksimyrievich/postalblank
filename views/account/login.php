@@ -32,17 +32,17 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= $form->field($model, 'rememberMe')->checkbox([
                         //'template' => "<div class=\"col-lg-offset-1 col-lg-3\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
                     ])->label(Yii::t('translate','TEXT_REMEMBER_ME')) ?>
+
+                    <div style="color:#999;margin:1em 0">
+                        If you forgot your password you can <?= Html::a('reset it', ['/site/password-reset-request']) ?>.
+                    </div>
+
+                    <div class="form-group">
+                        <?= Html::submitButton(Yii::t('translate','BUTTON_LOGIN'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                    </div>
+                    <?php ActiveForm::end(); ?>
                 </div>
             </div>
-
-
-            <div class="form-group">
-
-                    <?= Html::submitButton(Yii::t('translate','BUTTON_LOGIN'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-
-            </div>
-
-            <?php ActiveForm::end(); ?>
 
             <!--<div class="col-lg-offset-1" style="color:#999;">
 

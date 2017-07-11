@@ -14,9 +14,7 @@ class PasswordResetForm extends Model
 {
     public $password;
 
-    /**
-     * @var User
-     */
+
     private $_user;
 
 

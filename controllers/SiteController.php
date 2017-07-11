@@ -126,13 +126,10 @@ class SiteController extends Controller
         $this->view->registerMetaTag(['name' => 'description', 'content' => 'Плагин для Joomla, Joomshopping.
          Плагин для почтовых бланков. Заполнение почтовых бланков в один клик.']);
 
-
         $query = PlaginsTable::find();
-
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-
         return $this->render('plagins', ['listDataProvider' => $dataProvider]);
     }
 
@@ -142,12 +139,9 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 Yii::$app->session->setFlash('signupFormSubmitted');
-
                 return $this->refresh();
-
             }
         }
-
         return $this->render('signup', ['model' => $model]);
     }
 
