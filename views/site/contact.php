@@ -32,13 +32,13 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('translate', 'TITLE_CONTACT'
 
                         <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
-                            <?= $form->field($model, 'name')->textInput(['autofocus' => true])->label(Yii::t('translate','TEXT_NAME')) ?>
+                            <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
 
-                            <?= $form->field($model, 'email')->label(Yii::t('translate','TEXT_EMAIL')) ?>
+                            <?= $form->field($model, 'email') ?>
 
-                            <?= $form->field($model, 'subject')->label(Yii::t('translate','TEXT_SUBJECT')) ?>
+                            <?= $form->field($model, 'subject') ?>
 
-                            <?= $form->field($model, 'body')->textarea(['rows' => 6])->label(Yii::t('translate','TEXT_BODY')) ?>
+                            <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
 
                             <?= $form->field($model, 'file',['enableLabel' => false])->fileInput(array('class' => 'custom-file-upload',
                                 'data-btn-text' => Yii::t('translate','TEXT_SELECT_FILE')))->label(Yii::t('translate','TEXT_FILE')) ?>

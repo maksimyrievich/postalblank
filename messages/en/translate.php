@@ -20,7 +20,8 @@ return [
     'TEXT_SELECT_FILE' => 'Select a File',
     'MESS_VALID_EXTENSION_FILE' => 'Valid file types are "png","jpg","rar","zip".',
     'MESS_VALID_MAX_SIZE_FILE' =>'The file can be up to 3Mb.',
-    'MESS_VALID_REQUIRED' => 'This field must be filled',
+    'MESS_VALID_REQUIRED{attribute}' => 'The field "{attribute}" must be filled.',
+    'MESS_VALID_EMAIL{attribute}' => 'The value of the field "{attribute}" is not an email address.',
     'BUTTON_SUBMIT' => 'Submit',
     //Форма Меню регистрация
     'TITLE_SIGNUP' => 'Signup',

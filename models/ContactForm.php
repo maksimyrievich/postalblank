@@ -24,9 +24,9 @@ class ContactForm extends Model
     {
         return [
             // name, email, subject and body are required
-            [['name', 'email','subject','body'], 'required', 'message' => Yii::t('translate','MESS_VALID_REQUIRED')],
+            [['name', 'email','subject','body'], 'required', 'message' => Yii::t('translate','MESS_VALID_REQUIRED{attribute}')],
             // email has to be a valid email address
-            ['email', 'email'],
+            ['email', 'email', 'message' => Yii::t('translate','MESS_VALID_EMAIL{attribute}')],
             // verifyCode needs to be entered correctly
             ['verifyCode', 'captcha'],
             //Файл может быть загружен только с расширением png, jpg.
@@ -42,6 +42,10 @@ class ContactForm extends Model
     {
         return [
             'verifyCode' => 'Verification Code',
+            'name' => Yii::t('translate','TEXT_NAME'),
+            'email' => Yii::t('translate','TEXT_EMAIL'),
+            'subject' => Yii::t('translate','TEXT_SUBJECT'),
+            'body' => Yii::t('translate','TEXT_BODY'),
         ];
     }
 
@@ -67,12 +71,12 @@ class ContactForm extends Model
     {
         if ($this->validate()) {
             if($this->file != null) {
+                debug($this->file);
                 $this->file->saveAs(Yii::$app->basePath . '/uploads/' . $this->file->baseName . '.' . $this->file->extension);
             }
-                return true;
-
-        } else {
-            return false;
+            return true;
         }
+        return false;
+
     }
 }
