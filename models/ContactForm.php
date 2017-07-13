@@ -71,7 +71,6 @@ class ContactForm extends Model
     {
         if ($this->validate()) {
             if($this->file != null) {
-                debug($this->file);
                 $this->file->saveAs(Yii::$app->basePath . '/uploads/' . $this->file->baseName . '.' . $this->file->extension);
             }
             return true;

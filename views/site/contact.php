@@ -7,13 +7,14 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
-
+use yii\widgets\Breadcrumbs;
 
 $this->title = Yii::t('translate', 'TITLE_CONTACT');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('translate', 'TITLE_CONTACT'), 'url' => '/contact.html'];
 ?>
-<section>
+<section style=" background-image: url('/web/AssetsSmarty/images/demo/1200x800/fon4.jpg');">
     <div class="container">
+        <?= Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],])?>
         <div class="site-contact">
             <h1><?= Html::encode($this->title) ?></h1>
 
@@ -44,7 +45,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('translate', 'TITLE_CONTACT'
                                 'data-btn-text' => Yii::t('translate','TEXT_SELECT_FILE')))->label(Yii::t('translate','TEXT_FILE')) ?>
 
                             <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
-                                'template' => '<div class="row"><div class="col-lg-4">{image}</div><div class="col-lg-6">{input}</div></div>',
+                                'template' => '<div class="row"><div class="col-lg-4">{image}</div><div class="col-lg-8">{input}</div></div>',
                             ])->label(Yii::t('translate','TEXT_CAPCHA')) ?>
 
                             <div class="form-group">

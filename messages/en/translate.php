@@ -36,5 +36,10 @@ return [
     'TEXT_REMEMBER_ME' => 'Remember me',
     'TEXT_USERNAME' => 'Username',
     'TEXT_PASSWORD' => 'Password',
+    'TEXT_RESTORE_PASSWORD' =>'Restore password.',
     'BUTTON_LOGIN' => 'Login',
+    //Форма "Восстановление пароля"
+    'TITLE_RESTORE_PASSWORD' => 'Restore password',
+    'TEXT_RESET_REGISTR' => 'Please fill out your email. A link to reset password will be sent there.',
+    'BUTTON_SEND' => 'Send',
 ];

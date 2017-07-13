@@ -5,7 +5,7 @@
 
 
 use yii\helpers\Html;
-use yii\widgets\Breadcrumbs;
+
 use app\assets\AppAsset;
 use yii\helpers\Url;
 use app\components\SiteMenuWidget;
@@ -33,7 +33,7 @@ AppAsset::register($this);
 
     <!-- PAGE LEVEL SCRIPTS -->
     <link href="<?= Url::to("@web/web/AssetsSmarty/css/header-1.css")?>" rel="stylesheet" type="text/css" />
-    <link href="<?= Url::to("@web/web/AssetsSmarty/css/color_scheme/green.css")?>" rel="stylesheet" type="text/css" id="color_scheme" />
+    <link href="<?= Url::to("@web/web/AssetsSmarty/css/color_scheme/blue.css")?>" rel="stylesheet" type="text/css" id="color_scheme" />
 </head>
 
 <body class="smoothscroll enable-animation" >
@@ -122,12 +122,13 @@ AppAsset::register($this);
         </header>
         <!-- /Top Nav -->
     </div>
-    <!--<div class="callout "> <?php //Breadcrumbs::widget([
-            //'homeLink' => ['label' => ''],
-            //'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-       // ]) ?>
-    </div> -->
-    <?= $content ?>
+        <!--<div class="callout "> <?php //Breadcrumbs::widget([
+                //'homeLink' => ['label' => ''],
+                //'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+           // ]) ?>
+        </div> -->
+        <?= $content ?>
+
 </div>
 
 <footer id="footer">

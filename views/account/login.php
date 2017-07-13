@@ -7,12 +7,14 @@
  */
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\widgets\Breadcrumbs;
 
 $this->title = Yii::t('translate','TITLE_LOGIN_MY_ACCOUNT');
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => $this->title,'url' => '/account/login.html'];
 ?>
-<section>
+<section style=" background-image: url('/web/AssetsSmarty/images/demo/1200x800/fon4.jpg');">
     <div class="container">
+        <?= Breadcrumbs::widget(['links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],])?>
         <div class="site-login">
             <h1><?= Html::encode($this->title) ?></h1>
 
@@ -34,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     ])->label(Yii::t('translate','TEXT_REMEMBER_ME')) ?>
 
                     <div style="color:#999;margin:1em 0">
-                        If you forgot your password you can <?= Html::a('reset it', ['/site/password-reset-request']) ?>.
+                        <?= Html::a(Yii::t('translate','TEXT_RESTORE_PASSWORD'), ['/site/password-reset-request']) ?>
                     </div>
 
                     <div class="form-group">
