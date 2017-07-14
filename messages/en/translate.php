@@ -28,6 +28,8 @@ return [
     'TEXT_PLEASE_FILL_REGISTR' => 'Please fill out the following fields to signup:',
     'TEXT_CAPCHA' => 'Enter the code shown',
     'TEXT_CONFIRM_REGISTR' => 'A letter has been sent to your email. To complete the registration, click on the link in this email.',
+    'MESS_VALID_USERMAME_UNIQ' => 'A user with this name is registered on the site.',
+    'MESS_VALID_EMAIL_UNIQ' => 'A user with such an email is registered on the site.',
     'BUTTON_SIGNUP' => 'Signup',
     '' => '',
     //Форма Вход в личный кабинет
@@ -41,5 +43,9 @@ return [
     //Форма "Восстановление пароля"
     'TITLE_RESTORE_PASSWORD' => 'Restore password',
     'TEXT_RESET_REGISTR' => 'Please fill out your email. A link to reset password will be sent there.',
-    'BUTTON_SEND' => 'Send',
+    'BUTTON_SEND' => 'Send mail',
+    'BUTTON_BACK' => 'Back',
+    //Форма "Сброс пароля"
+    'TITLE_RESET_PASSWORD' => 'Reset password',
+    'TEXT_RESET_PASSWORD' => 'Please choose your new password:',
 ];

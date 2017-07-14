@@ -32,3 +32,5 @@ tests/_support/_generated
 /web/.htaccess
 /web/plaginsbody/plagin1.txt
 /site_content/plaginsbody/plagin1.txt
+/uploads/
+uploads/

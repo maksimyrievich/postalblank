@@ -56,15 +56,26 @@ class ContactForm extends Model
      */
     public function contact($email)
     {
-        Yii::$app->mailer->compose()
-        ->setTo($email)
-        ->setFrom([$email => $this->name.' с postalblank.ru'])
-        ->setReplyTo([$this->email => $this->name])
-        ->setSubject($this->subject)
-        ->setTextBody($this->body)
-        ->attach(Yii::$app->basePath.'/uploads/' . $this->file->baseName . '.' . $this->file->extension)
-        ->send();
-        return true;
+        if($this->file != null) {
+            Yii::$app->mailer->compose()
+                ->setTo($email)
+                ->setFrom([$email => $this->name . ' с postalblank.ru'])
+                ->setReplyTo([$this->email => $this->name])
+                ->setSubject($this->subject)
+                ->setTextBody($this->body)
+                ->attach(Yii::$app->basePath . '/uploads/' . $this->file->baseName . '.' . $this->file->extension)
+                ->send();
+            return true;
+        }else{
+            Yii::$app->mailer->compose()
+                ->setTo($email)
+                ->setFrom([$email => $this->name . ' с postalblank.ru'])
+                ->setReplyTo([$this->email => $this->name])
+                ->setSubject($this->subject)
+                ->setTextBody($this->body)
+                ->send();
+            return true;
+        }
     }
 
     public function upload()
