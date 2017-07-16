@@ -19,22 +19,38 @@ class SignupForm extends Model
     {
         return [
             ['username', 'filter', 'filter' => 'trim'],
-            ['username', 'required'],
-            ['username', 'match', 'pattern' => '#^[\w_-]+$#i'],
+            ['username', 'required', 'message' => Yii::t('translate', 'MESS_VALID_REQUIRED{attribute}')],
+            ['username', 'match', 'pattern' => '#^[\w_-]+$#i', 'message' => Yii::t('translate', 'MESS_VALID_PATTERN')],
             ['username', 'unique', 'targetClass' => User::className(), 'message' => Yii::t('translate', 'MESS_VALID_USERMAME_UNIQ')],
-            ['username', 'string', 'min' => 2, 'max' => 255],
+            ['username', 'string', 'min' => 2, 'max' => 255, 'tooShort' => Yii::t('translate', 'MESS_VALID_TOSHORT{attribute}'),
+                'tooLong' => Yii::t('translate', 'MESS_VALID_TOLONG{attribute}')],
 
             ['email', 'filter', 'filter' => 'trim'],
-            ['email', 'required'],
-            ['email', 'email'],
+            ['email', 'required', 'message' => Yii::t('translate', 'MESS_VALID_REQUIRED{attribute}')],
+            ['email', 'email', 'message' => Yii::t('translate','MESS_VALID_EMAIL{attribute}')],
             ['email', 'unique', 'targetClass' => User::className(), 'message' => Yii::t('translate', 'MESS_VALID_EMAIL_UNIQ')],
 
-            ['password', 'required'],
-            ['password', 'string', 'min' => 6],
+            ['password', 'required', 'message' => Yii::t('translate', 'MESS_VALID_REQUIRED{attribute}')],
+            ['password', 'string', 'min' => 6, 'tooShort' => Yii::t('translate', 'MESS_VALID_TOSHORT{attribute}')],
 
             ['verifyCode', 'captcha', 'captchaAction' => '/site/captcha'],
         ];
     }
+
+    /**
+     * @return array customized attribute labels
+     */
+    public function attributeLabels()
+    {
+        return [
+            'verifyCode' => 'Verification Code',
+            'username' => Yii::t('translate','TEXT_USERNAME'),
+            'email' => Yii::t('translate','TEXT_EMAIL'),
+            'password' => Yii::t('translate','TEXT_PASSWORD'),
+        ];
+    }
+
+
 
     /**
      * Signs user up.

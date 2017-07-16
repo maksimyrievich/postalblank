@@ -30,9 +30,9 @@ $this->params['breadcrumbs'][] = ['label' =>$this->title, 'url' => '/signup.html
                         <?php else: ?>
                         <p><?= Yii::t('translate','TEXT_PLEASE_FILL_REGISTR')?></p>
                         <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
-                        <?= $form->field($model, 'username')->textInput(['autofocus' => true])->label(Yii::t('translate','TEXT_USERNAME'))  ?>
-                        <?= $form->field($model, 'email')->label(Yii::t('translate','TEXT_EMAIL'))  ?>
-                        <?= $form->field($model, 'password')->passwordInput()->label(Yii::t('translate','TEXT_PASSWORD')) ?>
+                        <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+                        <?= $form->field($model, 'email') ?>
+                        <?= $form->field($model, 'password')->passwordInput() ?>
                         <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
                             'captchaAction' => '/site/captcha',
                             'template' => '<div class="row"><div class="col-lg-4">{image}</div><div class="col-lg-8">{input}</div></div>',

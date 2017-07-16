@@ -10,11 +10,13 @@ use app\components\CreateRuleWidget;
 use app\components\DataTransactionWidget;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use app\assets\AccordionViewSmartyAsset;
+
 
 $this->title = 'Личный кабинет';
 $this->params['breadcrumbs'][] = $this->title;
 
-
+AccordionViewSmartyAsset::register($this);
 ?>
 <div class = 'row'>
     <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">

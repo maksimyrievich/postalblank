@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <?php $form = ActiveForm::begin(['id' => 'reset-password-form']); ?>
                                     <?= $form->field($model, 'password')->passwordInput(['autofocus' => true]) ?>
                                     <div class="form-group">
-                                        <?= Html::submitButton('Save', ['class' => 'btn btn-primary']) ?>
+                                        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
                                         <?= Html::a(Yii::t('translate', 'BUTTON_BACK'), Url::to(['/account/login']), ['class' => 'btn btn-info', 'style' => 'margin: 4px 0px 4px 0px']) ?>
                                     </div>
                                 <?php ActiveForm::end(); ?>

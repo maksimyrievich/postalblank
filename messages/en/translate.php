@@ -30,9 +30,12 @@ return [
     'TEXT_CONFIRM_REGISTR' => 'A letter has been sent to your email. To complete the registration, click on the link in this email.',
     'MESS_VALID_USERMAME_UNIQ' => 'A user with this name is registered on the site.',
     'MESS_VALID_EMAIL_UNIQ' => 'A user with such an email is registered on the site.',
+    'MESS_VALID_PATTERN' => 'You have entered an invalid character.',
+    'MESS_VALID_TOSHORT{attribute}' => 'The value of the "{attribute}" field is too short.',
+    'MESS_VALID_TOLONG{attribute}' => 'The value of the field "{attribute}" is too long.',
     'BUTTON_SIGNUP' => 'Signup',
     '' => '',
-    //Форма Вход в личный кабинет
+    //Форма меню "Вход в личный кабинет"
     'TITLE_LOGIN_MY_ACCOUNT' => 'Login to my account',
     'TEXT_PLEASE_FILL_LOGIN' => 'Please fill in the following fields to log in:',
     'TEXT_REMEMBER_ME' => 'Remember me',

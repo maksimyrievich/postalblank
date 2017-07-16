@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => '/site/passw
                             'template' => '<div class="row"><div class="col-lg-4">{image}</div><div class="col-lg-8">{input}</div></div>',
                         ])->label(Yii::t('translate','TEXT_CAPCHA'))?>
                         <div class="form-group ">
-                            <?= Html::submitButton(Yii::t('translate', 'BUTTON_SEND'), ['class' => 'btn btn-primary']) ?>
+                            <?= Html::submitButton(Yii::t('translate', 'BUTTON_SEND'), ['class' => 'btn btn-success']) ?>
                             <?= Html::a(Yii::t('translate', 'BUTTON_BACK'), Url::to(['/account/login']), ['class' => 'btn btn-info', 'style' => 'margin: 4px 0px 4px 0px']) ?>
                         </div>
                         <?php ActiveForm::end(); ?>

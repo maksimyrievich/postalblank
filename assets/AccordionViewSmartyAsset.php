@@ -13,16 +13,19 @@ use yii\web\AssetBundle;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class AppAsset extends AssetBundle
+//Подключаем локально в файле views/account/mytransactions.php
+class AccordionViewSmartyAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'AssetsDefault/css/site.css',
+
     ];
     public $js = [
-
-
+        //А эти файлы для того что бы работал аккордион в меню
+        'AssetsSmarty/js/jquery.accordion.js',
+        'AssetsSmarty/js/jquery.cookie.js',
+        'AssetsSmarty/js/main.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = ['label' => $this->title,'url' => '/account/log
                             <?= Html::a(Yii::t('translate','TEXT_RESTORE_PASSWORD'), ['/site/password-reset-request']) ?>
                         </div>
                         <div class="form-group">
-                            <?= Html::submitButton(Yii::t('translate','BUTTON_LOGIN'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                            <?= Html::submitButton(Yii::t('translate','BUTTON_LOGIN'), ['class' => 'btn btn-success', 'name' => 'login-button']) ?>
                             <?= Html::a(Yii::t('translate', 'BUTTON_SIGNUP'), Url::to(['/signup']), ['class' => 'btn btn-info', 'style' => 'margin: 4px 0px 4px 0px']) ?>
                         </div>
                         <?php ActiveForm::end(); ?>

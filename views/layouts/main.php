@@ -5,7 +5,6 @@
 
 
 use yii\helpers\Html;
-
 use app\assets\AppAsset;
 use yii\helpers\Url;
 use app\components\SiteMenuWidget;
@@ -298,6 +297,7 @@ AppAsset::register($this);
 <!-- JAVASCRIPT FILES -->
 <script type="text/javascript">var plugin_path = '<?= Url::to("@web/web/AssetsSmarty/plugins/")?>';</script>
 <script type="text/javascript" src="<?= Url::to("@web/web/AssetsSmarty/js/scripts.js")?>"></script>
+
 
 </body>
 </html>

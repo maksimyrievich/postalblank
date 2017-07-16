@@ -61,6 +61,8 @@ class TranzactionTableSearch extends TranzactionTable
         }
         //Сортировка таблицы из конца в начало
         $dataProvider->query->orderBy(['id' => SORT_DESC]);
+        $dataProvider->pagination = false;
+        $dataProvider->sort = false;
 
         // grid filtering conditions
         $query->andFilterWhere([
