@@ -10,10 +10,12 @@ namespace app\controllers;
 
 use app\models\BlankMenuForm;
 use app\models\CreateRulesForm;
+use app\models\EditDataForm;
 use app\models\RulesTable;
 use app\models\SaveRulesForm;
 use app\models\LoginForm;
 use app\models\MoneyTransferTable;
+use app\models\User;
 use app\models\UsersTable;
 use app\models\YandexMoneyForm;
 use app\models\TranzactionTable;
@@ -163,11 +165,44 @@ class AccountController extends Controller
         if (Yii::$app->user->isGuest) {
             return $this->redirect('/account/login.html');
         }
+        $user = User::findIdentity(Yii::$app->user->id);
+        //$id = Yii::$app->request->get('id');
+        return $this->render('mydata',['user' => $user]);
+    }
 
-        $id = Yii::$app->request->get('id');
+    public function actionGenerateKey()
+    {
+        //Если юзер гость то идём на страницу входа в личный кабинет
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect('/account/login.html');
+        }
+        $user = User::findIdentity(Yii::$app->user->id);
+        $user->generateKeySecret();
+        $user->save();
         return $this->render('mydata');
     }
 
+    public function actionEditData()
+    {
+        //Если юзер гость то идём на страницу входа в личный кабинет
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect('/account/login.html');
+        }
+        $model = new EditDataForm();
+        $user = User::findIdentity(Yii::$app->user->id);
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $user->firstname = $model->firstname;
+            $user->lastname = $model->lastname;
+            $user->telephone = $model->telephone;
+            $user->save();
+            return $this->render('mydata', ['user' => $user]);
+        } else {
+            $model->firstname = $user->firstname;
+            $model->lastname = $user->lastname;
+            $model->telephone = $user->telephone;
+            return $this->render('editdata',['model' => $model,'user' => $user]);
+        }
+    }
 
 
     public function actionDataTransaction()

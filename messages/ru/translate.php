@@ -39,7 +39,7 @@ return [
     'TITLE_LOGIN_MY_ACCOUNT' => 'Вход в личный кабинет',
     'TEXT_PLEASE_FILL_LOGIN' => 'Для входа на сайт введите данные своей учётной записи:',
     'TEXT_REMEMBER_ME' => 'Запомнить меня',
-    'TEXT_USERNAME' => 'Имя пользователя',
+    'TEXT_USERNAME' => 'Логин',
     'TEXT_PASSWORD' => 'Пароль',
     'TEXT_RESTORE_PASSWORD' =>'Изменить пароль.',
     'BUTTON_LOGIN' => 'Войти',
@@ -51,5 +51,15 @@ return [
     //Форма "Сброс пароля"
     'TITLE_RESET_PASSWORD' => 'Изменение пароля',
     'TEXT_RESET_PASSWORD' => 'Установите новый пароль:',
-
+    //Представление "mydata.php"
+    'BUTTON_GENERATED_KEY' => 'Сгенерировать новый ключ',
+    'BUTTON_TOP_UP_BALANCE' => 'Пополнить счёт',
+    'BUTTON_EDIT_DATA' => 'Редактировать данные',
+    //Форма "EditDataForm.php"
+    'TEXT_FIRSTNAME' => 'Фамилия',
+    'TEXT_LASTNAME' => 'Имя',
+    'TEXT_TELEPHONE' => 'Телефон',
+    //Представление "editdata.php"
+    'TITLE_EDIT_DATA' => 'Редактирование личных данных',
+    'BUTTON_SAVE_DATA' => 'Сохранить данные'
 ];

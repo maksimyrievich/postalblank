@@ -6,9 +6,10 @@
  * Time: 23:42
  */
 use app\components\AccountMenuWidget;
-use app\components\UserInfoWidget;
 use yii\widgets\Breadcrumbs;
 use app\assets\AccordionViewSmartyAsset;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
 $this->title = 'Мой кабинет';
 $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => '/account/mydata.html'];
@@ -42,15 +43,35 @@ AccordionViewSmartyAsset::register($this);
                     <div class="panel" style="margin: 0px 0px 0px 0px">
                         <div class="panel-primary">
                             <div class="panel-heading" style="text-align: center">
-                                <i class="glyphicon glyphicon-user"></i> <?=Yii::$app->user->identity->username ?>
+                                <i class="glyphicon glyphicon-user"></i> Личная информация
                             </div>
-                            <?= UserInfoWidget::widget();?>
+                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>Логин :</b> <span class="pull-right"><?= $user->username;?></span></a>
+                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>Емайл :</b><span class="pull-right"><?= $user->email; ?></span></a>
+                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>Статус пользователя :</b><span class="pull-right"><?= $user->getStatusName(); ?></span></a>
+                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>Фамилия :</b> <span class="pull-right"><?= $user->firstname;?></span></a>
+                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>Имя :</b><span class="pull-right"><?= $user->lastname; ?></span></a>
+                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>Телефон :</b><span class="pull-right"><?= $user->telephone; ?></span></a>
+                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>ID пользователя :</b><span class="pull-right"><?= $user->getId(); ?></span></a>
+                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>Баланс счёта (руб) :</b><span class="pull-right"><?= $user->balance;?></span></a>
+                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>Key:</b><span class="pull-right"><?= $user->key_secret;?></span></a>
                         </div>
+
                     </div>
+
                 </div>
+                <div class="form-group text-center">
+                    <?= Html::a(Yii::t('translate', 'BUTTON_EDIT_DATA'), Url::to(['/account/edit-data']), ['class' => 'btn btn-success', 'style' => 'margin: 4px 0px 4px 0px']) ?>
+                    <?= Html::a(Yii::t('translate', 'BUTTON_TOP_UP_BALANCE'), Url::to(['/account/balance']), ['class' => 'btn btn-info']) ?>
+                    <?= Html::a(Yii::t('translate', 'BUTTON_GENERATED_KEY'), Url::to(['/account/generate-key']), [
+                        'class' => 'btn btn-warning',
+                        'style' => 'margin: 4px 0px 4px 0px',
+                        'data' => [
+                            'confirm' => 'Вы уверены, что хотите поменять ключ? После изменения ключа не забудьте его обновить в настройках плагина.',
+                            'method' => 'post',
+                        ]]) ?>
+                   </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-3" >
-
             </div>
         </div>
     </div>

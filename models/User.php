@@ -25,6 +25,9 @@ use yii\base\NotSupportedException;
  * @property string $balance
  * @property string $key_secret
  * @property string $password
+ * @property string $telephone
+ * @property string $firstname
+ * @property string $lastname
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -66,7 +69,7 @@ class User extends ActiveRecord implements IdentityInterface
             'id' => 'ID',
             'created_at' => 'Создан',
             'updated_at' => 'Обновлён',
-            'username' => 'Имя пользователя',
+            'username' => 'Логин',
             'email' => 'Email',
             'status' => 'Статус',
             'balance' => 'Баланс',
@@ -76,7 +79,9 @@ class User extends ActiveRecord implements IdentityInterface
             'email_confirm_token' => 'Email Confirm Token',
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
-
+            'telephone' => 'Телефон',
+            'firstname' => 'Фамилия',
+            'lastname' => 'Имя',
         ];
     }
 

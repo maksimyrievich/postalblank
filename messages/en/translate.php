@@ -51,4 +51,16 @@ return [
     //Форма "Сброс пароля"
     'TITLE_RESET_PASSWORD' => 'Reset password',
     'TEXT_RESET_PASSWORD' => 'Please choose your new password:',
+    //Представление "mydata.php"
+    'BUTTON_GENERATED_KEY' => 'Generate new key',
+    'BUTTON_TOP_UP_BALANCE' => 'Top up balance',
+    'BUTTON_EDIT_DATA' => 'Edit data',
+    //Форма "EditDataForm.php"
+    'TEXT_FIRSTNAME' => 'First name',
+    'TEXT_LASTNAME' => 'Last name',
+    'TEXT_TELEPHONE' => 'Telephone',
+    //Представление "editdata.php"
+    'TITLE_EDIT_DATA' => 'Editing of personal data',
+    'BUTTON_SAVE_DATA' => 'Save data',
+
 ];
