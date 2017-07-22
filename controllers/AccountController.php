@@ -179,7 +179,7 @@ class AccountController extends Controller
         $user = User::findIdentity(Yii::$app->user->id);
         $user->generateKeySecret();
         $user->save();
-        return $this->render('mydata');
+        return $this->render('mydata', ['user' => $user]);
     }
 
     public function actionEditData()

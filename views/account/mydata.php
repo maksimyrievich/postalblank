@@ -45,15 +45,20 @@ AccordionViewSmartyAsset::register($this);
                             <div class="panel-heading" style="text-align: center">
                                 <i class="glyphicon glyphicon-user"></i> Личная информация
                             </div>
-                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>Логин :</b> <span class="pull-right"><?= $user->username;?></span></a>
-                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>Емайл :</b><span class="pull-right"><?= $user->email; ?></span></a>
-                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>Статус пользователя :</b><span class="pull-right"><?= $user->getStatusName(); ?></span></a>
-                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>Фамилия :</b> <span class="pull-right"><?= $user->firstname;?></span></a>
-                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>Имя :</b><span class="pull-right"><?= $user->lastname; ?></span></a>
-                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>Телефон :</b><span class="pull-right"><?= $user->telephone; ?></span></a>
-                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>ID пользователя :</b><span class="pull-right"><?= $user->getId(); ?></span></a>
-                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>Баланс счёта (руб) :</b><span class="pull-right"><?= $user->balance;?></span></a>
-                            <a class="list-group-item" style="padding: 5px 3px 5px 3px"><b>Key:</b><span class="pull-right"><?= $user->key_secret;?></span></a>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered" >
+                                    <tbody >
+                                        <tr><th style="font-weight: 100">Логин пользователя:</th><th style="font-weight: 100"><?= $user->username;?></th></tr>
+                                        <tr><th style="font-weight: 100">Емайл пользователя:</th><th style="font-weight: 100"><?= $user->email; ?></th></tr>
+                                        <tr><th style="font-weight: 100">Статус пользователя :</th><th style="font-weight: 100"><?= $user->getStatusName(); ?></th></tr>
+                                        <tr><th style="font-weight: 100">Ф.И.О. пользователя:</th><th style="font-weight: 100"><?= $user->firstname;?> <?= $user->lastname; ?></th></tr>
+                                        <tr><th style="font-weight: 100">Телефон пользователя:</th><th style="font-weight: 100"><?= $user->telephone; ?></th></tr>
+                                        <tr><th style="font-weight: 100">ID пользователя :</th><th style="font-weight: 100"><?= $user->getId(); ?></th></tr>
+                                        <tr><th style="font-weight: 100">Баланс счёта (руб) :</th><th style="font-weight: 100" ><?= $user->balance;?></th></tr>
+                                        <tr style="font-weight: 100"><th style="font-weight: 100">Секретный ключ :</th><th style="font-weight: 100"><?= $user->key_secret;?></th></tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
                     </div>
