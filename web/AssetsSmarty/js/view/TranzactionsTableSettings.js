@@ -6,11 +6,11 @@ function initTable3() {
     function fnFormatDetails(oTable, nTr) {
         var aData = oTable.fnGetData(nTr);
         var sOut = '<table>';
+        sOut += '<tr><td>ID пользователя: </td><td>' + aData[9] + '</td></tr>';
         sOut += '<tr><td width="130px"><span style="white-space: nowrap;">Время запроса:</span></td><td>' + aData[2] + '</td></tr>';
         sOut += '<tr><td><span style="white-space: nowrap; ">Источник запроса:</span></td><td>' + aData[3] + '</td></tr>';
         sOut += '<tr><td>Ключ в запросе:</td><td>' + aData[7] + '</td></tr>';
         sOut += '<tr><td valign="top"><span style="white-space: nowrap;">Статус запроса:</span></td><td><span>' + aData[4] + '</span></td></tr>';
-        sOut += '<tr><td>ID пользователя: </td><td>' + aData[9] + '</td></tr>';
         sOut += '<tr><td><span style="white-space: nowrap; ">ID номер запроса: </span></td><td>' + aData[1] + '</td></tr>';
         sOut += '<tr><td valign="top">Вид доставки: </td><td>' + aData[5] + '</td></tr>';
         sOut += '<tr><td>Статус ответа:</td><td>' + aData[6] + '</td></tr>';
@@ -65,9 +65,6 @@ function initTable3() {
                 "orderable": false,
                 "targets": [0]
             }],
-            "order": [
-                [2, "desc"]
-            ],
             "lengthMenu": [
                 [5,10,13],
                 [5,10,13] // change per page values here
@@ -76,9 +73,10 @@ function initTable3() {
             "pageLength": 13,
             "dom": '<"top">rt<"bottom"p><"clear">',
             "scrollX": true,
-            "stateSave": true
+            "stateSave": false,
 
-    }
+
+        }
 
     );
 

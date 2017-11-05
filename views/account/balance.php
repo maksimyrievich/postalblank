@@ -43,8 +43,8 @@ AccordionViewSmartyAsset::register($this);
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-3">
-                <div class="panel" style="background-color: #269abc; padding: 0px 0px 0px 0px">
-                    <div class="panel" style="margin: 0px 0px 0px 0px">
+                <div class="panel" id="tratata"  style="background-color: #269abc; padding: 0px 0px 0px 0px">
+                    <div class="panel"  style="margin: 0px 0px 0px 0px">
                         <div class="panel-primary">
                             <div class="panel-heading"style="text-align: center" >
                                 Пополнить счет

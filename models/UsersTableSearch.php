@@ -41,7 +41,7 @@ class UsersTableSearch extends UsersTable
      */
     public function search($params)
     {
-        $query = UsersTable::find();
+        $query = User::find();
 
         // add conditions that should always apply here
 
@@ -62,13 +62,13 @@ class UsersTableSearch extends UsersTable
             'id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'firstusername', $this->firstusername])
-            ->andFilterWhere(['like', 'lastusername', $this->lastusername])
+        $query->andFilterWhere(['like', 'firstusername', $this->firstname])
+            ->andFilterWhere(['like', 'lastusername', $this->lastname])
             ->andFilterWhere(['like', 'username', $this->username])
             ->andFilterWhere(['like', 'password', $this->password])
             ->andFilterWhere(['like','balance', $this->balance])
-            ->andFilterWhere(['like', 'authkey', $this->authkey])
-            ->andFilterWhere(['like', 'accesstoken', $this->accesstoken]);
+            ->andFilterWhere(['like', 'authkey', $this->authkey]);
+            //->andFilterWhere(['like', 'accesstoken', $this->accesstoken]);
 
         return $dataProvider;
     }

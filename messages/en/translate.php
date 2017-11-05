@@ -62,5 +62,8 @@ return [
     //Представление "editdata.php"
     'TITLE_EDIT_DATA' => 'Editing of personal data',
     'BUTTON_SAVE_DATA' => 'Save data',
+    //Представление "aboutme.php"
+    'TITLE_ABOUTME' => 'About me',
+    'TITLE_FOOTER' => 'Footer',
 
 ];

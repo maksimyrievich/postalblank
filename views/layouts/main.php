@@ -212,7 +212,7 @@ AppAsset::register($this);
                         <h4 class="letter-spacing-1">ДЛЯ ПРОЧТЕНИЯ</h4>
                         <ul class="list-unstyled footer-list half-paddings noborder">
                             <li><a class="block" href="#"><i class="fa fa-angle-right"></i> About Us</a></li>
-                            <li><a class="block" href="#"><i class="fa fa-angle-right"></i> About Me</a></li>
+                            <li><a class="block" href="<?= Url::to (['/footer/about-me']);?>"><i class="fa fa-angle-right"></i> <?=Yii::t('translate', 'TITLE_ABOUTME')?></a></li>
                             <li><a class="block" href="#"><i class="fa fa-angle-right"></i> About Our Team</a></li>
                             <li><a class="block" href="#"><i class="fa fa-angle-right"></i> Services</a></li>
                             <li><a class="block" href="#"><i class="fa fa-angle-right"></i> Careers</a></li>

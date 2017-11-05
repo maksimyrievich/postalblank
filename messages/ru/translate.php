@@ -61,5 +61,8 @@ return [
     'TEXT_TELEPHONE' => 'Телефон',
     //Представление "editdata.php"
     'TITLE_EDIT_DATA' => 'Редактирование личных данных',
-    'BUTTON_SAVE_DATA' => 'Сохранить данные'
+    'BUTTON_SAVE_DATA' => 'Сохранить данные',
+    //Представление "aboutme.php"
+    'TITLE_ABOUTME' => 'Обо мне',
+    'TITLE_FOOTER' => 'Футер',
 ];

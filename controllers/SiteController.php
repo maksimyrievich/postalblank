@@ -119,6 +119,16 @@ class SiteController extends Controller
      */
     public function actionPlagins()
     {
+        previev:
+        //Блок кода учёта количества просмотра страниц.
+        $file=fopen(Yii::$app->basePath."/site_content/plaginsbody/previev.txt","a+");
+        flock($file,LOCK_EX);
+        $count=fread($file,100);
+        $count++;
+        ftruncate($file,0);
+        fwrite($file,$count);
+        flock($file,LOCK_UN);
+        fclose($file);
 
         $this->view->title = 'Плагины для CMS';
         $this->view->registerMetaTag(['name' => 'keywords', 'content' => 'Joomla, Joomshopping, заполнение почтовых бланков,
@@ -202,68 +212,13 @@ class SiteController extends Controller
     /**
      * @return string|\yii\web\Response
      */
-    public function actionDownload($id = 0, $d = 0)
+    public function actionDownload()
     {
 
-        $model = new DownloadForm(); //Объявляем переменную $model экземпляром модели DownloadForm
-        $user = new User();
-        $plagin = PlaginsTable::findOne($id);
-        if($d != 0){
-            goto download;
-        }
 
-        if(Yii::$app->user->isGuest) //Если юзер гость, то
-        {
-            //попадаем сюда:
-            //Если DownloadForm загружена успешно, и ...
-            if ($model->load(Yii::$app->request->post()) && $model->download(Yii::$app->params['email']))
-            {
-                Yii::$app->session->setFlash('downloadFormSubmitted'); //Устанавливаем сессию "downloadFormSubmitted"
-                $user->firstusername = $model->firstname;
-                $user->lastusername = $model->lastname;
-                //Выдергиваем все usermame из базы какие сейчас в ней есть
-                $username_array = Yii::$app->db->createCommand('SELECT username FROM users')->queryColumn();
-                //Сравниваем все usermame из БД с введённым юзером в форму только что
-                foreach ($username_array as $key => $value){
-                    //если такой токен уже есть в БД, если пользователь с таким емайлом уже зарегистрирован
-                    if($username_array[$key] === $model->email){
-                        // выдаем въюху с информированием о том, что такой username уже есть
-                        Yii::$app->session->destroy();
-                        Yii::$app->session->setFlash('ErrorLogin');
-                        goto view;
-                    }
-                }
-                $user->username = $model->email;
-                $user->password = md5($model->password);
-                $user->balance = 10;
-                //Выдергиваем все токены из базы какие сейчас в ней есть
-                $token_db = Yii::$app->db->createCommand('SELECT key_secret FROM users')->queryColumn();
-                start:
-                //Начинаем генерить токен транзакции по определённому алгоритму
-                $user->key_secret = md5(uniqid(rand(0,32)));
-                //Сравниваем все токены из БД со сгенерированным только что
-                foreach ($token_db as $key => $value){
-                    //если такой токен уже есть в БД,
-                    if($token_db[$key] === $user->key_secret){
-                        // возвращаемся генерить новый токен на метку старт.
-                        goto start;
-                    }
-                }
-                // а если такого токена нет в БД, то сохраняем транзакцию с этим токеном в БД
-                if ($user->validate() && $user->save())
-                {
-                    //Высылаем юзеру емайл сообщение с логином и паролем. Что бы он не забыл их.
-                    $mail = new GenerateMail();
-                    $mail->sendMail('example','Регистрация на сайте',['paramExample' => '123'],  $user->username);
-                    return $this->refresh();
-                }
-            }
-            view:
-            return $this->render('download',['model' => $model, 'plagin' => $plagin, 'id' => $id]);
-
-        }
         download:
         //Блок кода учёта количества скачиваний.
+        $id = Yii::$app->request->get('id');
         $file=fopen(Yii::$app->basePath."/site_content/plaginsbody/plagin".$id.".txt","a+");
         flock($file,LOCK_EX);
         $count=fread($file,100);
@@ -276,6 +231,85 @@ class SiteController extends Controller
         //$this->path = realpath(Yii::$app->basePath . '/plaginsbody/');
         return Yii::$app->response->sendFile(Yii::$app->basePath.'/site_content/plaginsbody/plgJshoppPostalBlank.zip');
     }
+
+
+
+//    public function actionDownload($id = 0, $d = 0)
+//    {
+//
+//        $model = new DownloadForm(); //Объявляем переменную $model экземпляром модели DownloadForm
+//        $user = new User();
+//        $plagin = PlaginsTable::findOne($id);
+//        if($d != 0){
+//            goto download;
+//        }
+//
+//        if(Yii::$app->user->isGuest) //Если юзер гость, то
+//        {
+//            //попадаем сюда:
+//            //Если DownloadForm загружена успешно, и ...
+//            if ($model->load(Yii::$app->request->post()) && $model->download(Yii::$app->params['email']))
+//            {
+//                Yii::$app->session->setFlash('downloadFormSubmitted'); //Устанавливаем сессию "downloadFormSubmitted"
+//                $user->firstusername = $model->firstname;
+//                $user->lastusername = $model->lastname;
+//                //Выдергиваем все usermame из базы какие сейчас в ней есть
+//                $username_array = Yii::$app->db->createCommand('SELECT username FROM users')->queryColumn();
+//                //Сравниваем все usermame из БД с введённым юзером в форму только что
+//                foreach ($username_array as $key => $value){
+//                    //если такой токен уже есть в БД, если пользователь с таким емайлом уже зарегистрирован
+//                    if($username_array[$key] === $model->email){
+//                        // выдаем въюху с информированием о том, что такой username уже есть
+//                        Yii::$app->session->destroy();
+//                        Yii::$app->session->setFlash('ErrorLogin');
+//                        goto view;
+//                    }
+//                }
+//                $user->username = $model->email;
+//                $user->password = md5($model->password);
+//                $user->balance = 10;
+//                //Выдергиваем все токены из базы какие сейчас в ней есть
+//                $token_db = Yii::$app->db->createCommand('SELECT key_secret FROM users')->queryColumn();
+//                start:
+//                //Начинаем генерить токен транзакции по определённому алгоритму
+//                $user->key_secret = md5(uniqid(rand(0,32)));
+//                //Сравниваем все токены из БД со сгенерированным только что
+//                foreach ($token_db as $key => $value){
+//                    //если такой токен уже есть в БД,
+//                    if($token_db[$key] === $user->key_secret){
+//                        // возвращаемся генерить новый токен на метку старт.
+//                        goto start;
+//                    }
+//                }
+//                // а если такого токена нет в БД, то сохраняем транзакцию с этим токеном в БД
+//                if ($user->validate() && $user->save())
+//                {
+//                    //Высылаем юзеру емайл сообщение с логином и паролем. Что бы он не забыл их.
+//                    $mail = new GenerateMail();
+//                    $mail->sendMail('example','Регистрация на сайте',['paramExample' => '123'],  $user->username);
+//                    return $this->refresh();
+//                }
+//            }
+//            view:
+//            return $this->render('download',['model' => $model, 'plagin' => $plagin, 'id' => $id]);
+//
+//        }
+//        download:
+//        //Блок кода учёта количества скачиваний.
+//        $file=fopen(Yii::$app->basePath."/site_content/plaginsbody/plagin".$id.".txt","a+");
+//        flock($file,LOCK_EX);
+//        $count=fread($file,100);
+//        $count++;
+//        ftruncate($file,0);
+//        fwrite($file,$count);
+//        flock($file,LOCK_UN);
+//        fclose($file);
+//        //return $this->redirect($plagin->plagin_path);
+//        //$this->path = realpath(Yii::$app->basePath . '/plaginsbody/');
+//        return Yii::$app->response->sendFile(Yii::$app->basePath.'/site_content/plaginsbody/plgJshoppPostalBlank.zip');
+//    }
+
+
 }
 
 

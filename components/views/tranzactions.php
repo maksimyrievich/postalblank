@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => '/account/lo
                     'value' => function($model){
                         return Html::a('<i class = "glyphicon glyphicon-cog"></i> Создать стандартное правило для этого вида доставки', Url::to(['account/data-transaction', 'id' => $model->id]),
                             [
-                                'title' => 'Вы можете создать таповое правило для данного варианта доставки.',
+                                'title' => 'Вы можете создать типовое правило для данного варианта доставки.',
                                 'target' => '_blank'
                             ]);}]
                 //['class' => 'yii\grid\ActionColumn',],

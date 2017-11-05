@@ -12,6 +12,32 @@
     cookie: 'blank-accordion'
     });
 
+
+
+    // var w = $('#tratata').width();    //Блок кода просто учусь анимированию
+    // var h = $('#tratata').height();
+    // $('#tratata').animate({
+    //         opacity: "hide",
+    //         marginRight : "+=200",
+    //         marginLeft : "+=400",
+    //         marginTop : "-=200",
+    //         height : h - 100,
+    //         width : w - 100,
+    // },1500);
+    //
+    // $('#tratata').animate({
+    //     opacity: "show",
+    //     marginRight : "-=200",
+    //     marginLeft : "-=400",
+    //     marginTop : "+=200",
+    //     height : h + 2,
+    //     width : w,
+    // },1500);
+
+
+
+
+
 	// var RGBChange = function() {
 	//   $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
 	// };
