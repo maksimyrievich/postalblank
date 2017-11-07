@@ -10,6 +10,7 @@ use yii\helpers\Url;
 use app\components\SiteMenuWidget;
 use app\components\HeaderMenuWidget;
 use app\components\AccountMenuWidget;
+use app\models\Rbac;
 
 AppAsset::register($this);
 ?>
@@ -97,6 +98,11 @@ AppAsset::register($this);
                             <li ><!-- PAGES -->
                                 <a href= "<?= Url::to (['/contact']);?>"><i class = "glyphicon glyphicon-send"></i> <?=Yii::t('translate', 'NAV_CONTACT')?></a>
                             </li>
+                            <?php if(Yii::$app->user->can(Rbac::PERMISSION_ADMIN_PANEL)): ?>
+                                <li ><!-- FEATURES -->
+                                    <a href="<?= Url::to (['/admin/index']);?>"><i class = "glyphicon glyphicon-registration-mark"></i> <?=Yii::t('translate', 'NAV_ADMIN')?></a>
+                                </li>
+                            <?php else :?><?php endif;?>
                             <?php if(Yii::$app->user->isGuest): ?>
                             <li ><!-- FEATURES -->
                                 <a href="<?= Url::to (['/signup']);?>"><i class = "glyphicon glyphicon-registration-mark"></i> <?=Yii::t('translate', 'NAV_SIGNUP')?></a>

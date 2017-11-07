@@ -23,6 +23,10 @@ $config = [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
         ],
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager',
+
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -48,6 +52,9 @@ $config = [
                 'encryption' => 'tls', // Шифрование
             ],
         ],
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager',
+        ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -70,7 +77,9 @@ $config = [
             'rules' => [
                 //'account/<id:\d+>' => 'account/view',
                 ['pattern' => '/','route' => 'site/index','suffix' => ''],
+
                 '<action:(index|signup|plagins|contact|download)>' => 'site/<action>',//любой из этих экшенов после http://postalblank.ru/<action> будет идти на http://postalblank.ru/site/<action> или \w+
+
             ],
         ],
         //Блок настроек для интернационализации сайта i18n.
@@ -89,10 +98,7 @@ $config = [
         'formatter' => [
             'class' => 'yii\i18n\Formatter',
             'defaultTimeZone' => 'Europe/Moscow',
-            'timeZone' => 'GMT+3',
-            'dateFormat' => 'd MMMM yyyy',
-            'datetimeFormat' => 'd-M-Y H:i:s',
-            'timeFormat' => 'H:i:s',
+            'timeZone' => 'Europe/Moscow',
         ],
     ],
 

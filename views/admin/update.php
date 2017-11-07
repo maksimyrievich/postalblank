@@ -10,7 +10,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Users Tables', 'url' => ['index']]
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="users-table-update">
+<div class="users-table-update container-fluid">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

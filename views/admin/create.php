@@ -10,7 +10,7 @@ $this->title = 'Create Users Table';
 $this->params['breadcrumbs'][] = ['label' => 'Users Tables', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="users-table-create">
+<div class="users-table-create container-fluid">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

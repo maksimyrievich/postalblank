@@ -4,11 +4,21 @@ $params = require(__DIR__ . '/params.php');
 $db = require(__DIR__ . '/db.php');
 
 $config = [
-    'id' => 'basic-console',
+    'id' => 'app-console',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'app\commands',
     'components' => [
+        'user' => [
+            'class' => 'yii\web\User',
+            'identityClass' => 'app\models\User',
+            'enableAutoLogin' => false,
+            'enableSession' => false,
+        ],
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager',
+
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],

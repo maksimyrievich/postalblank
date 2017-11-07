@@ -10,7 +10,7 @@ $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Users Tables', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="users-table-view">
+<div class="users-table-view container-fluid">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -29,13 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'firstusername',
-            'lastusername',
             'username',
-            'password',
-            'balance',
-            //'authkey',
-            //'accesstoken',
+            'email:email',
+            'created_at:datetime',
+            'updated_at:datetime',
+            [
+                'attribute' => 'status',
+                'value' => $model->getStatusName(),
+            ],
         ],
     ]) ?>
 

@@ -50,8 +50,8 @@ $this->params['breadcrumbs'][] = ['label' =>$this->title, 'url' => '/signup.html
                                 <!-- OWL SLIDER -->
                                 <div class="owl-carousel buttons-autohide controlls-over nomargin" data-plugin-options='{"items": 1, "autoPlay": 4500, "autoHeight": false, "navigation": true, "pagination": true, "transitionStyle":"fadeUp", "progressBar":"false"}'>
 
-                                    <a class="lightbox" href="/AssetsDefault/images/joomla_2_1264x886px.png" data-plugin-options='{"type":"image"}'>
-                                        <img class="img-responsive" src="/AssetsDefault/images/joomla_2_1264x886px.png" alt="" />
+                                    <a class="lightbox" href="/AssetsDefault/images/Joomla_2_1264x886px.png" data-plugin-options='{"type":"image"}'>
+                                        <img class="img-responsive" src="/AssetsDefault/images/Joomla_2_1264x886px.png" alt="" />
                                     </a>
                                 </div>
 
