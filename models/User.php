@@ -59,6 +59,8 @@ class User extends ActiveRecord implements IdentityInterface
             ['status', 'integer'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => array_keys(self::getStatusesArray())],
+
+            ['role', 'string', 'max' => 64],
         ];
 
     }
@@ -82,6 +84,7 @@ class User extends ActiveRecord implements IdentityInterface
             'telephone' => 'Телефон',
             'firstname' => 'Фамилия',
             'lastname' => 'Имя',
+
         ];
     }
 

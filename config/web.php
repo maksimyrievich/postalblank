@@ -24,8 +24,7 @@ $config = [
             'enableAutoLogin' => true,
         ],
         'authManager' => [
-            'class' => 'yii\rbac\PhpManager',
-
+            'class' => 'app\components\AuthManager',
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -51,9 +50,6 @@ $config = [
                 'port' => '2525', // Порт
                 'encryption' => 'tls', // Шифрование
             ],
-        ],
-        'authManager' => [
-            'class' => 'yii\rbac\PhpManager',
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

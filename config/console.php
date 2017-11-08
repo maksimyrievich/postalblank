@@ -16,8 +16,7 @@ $config = [
             'enableSession' => false,
         ],
         'authManager' => [
-            'class' => 'yii\rbac\PhpManager',
-
+            'class' => 'app\components\AuthManager',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',

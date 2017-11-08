@@ -16,6 +16,7 @@ class UsersTableSearch extends Model
     public $status;
     public $date_from;
     public $date_to;
+    public $role;
 
     public function rules()
     {
@@ -61,6 +62,7 @@ class UsersTableSearch extends Model
         $query->andFilterWhere([
             'id' => $this->id,
             'status' => $this->status,
+            'role' => $this->role,
         ]);
 
         $query

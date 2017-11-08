@@ -4,7 +4,11 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use app\models\User;
 use kartik\date\DatePicker;
-
+use app\components\grid\LinkColumn;
+use app\components\grid\ActionColumn;
+use app\components\grid\SetColumn;
+use app\components\grid\RoleColumn;
+use yii\helpers\ArrayHelper;
 
 
 /* @var $this yii\web\View */
@@ -42,34 +46,28 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'created_at',
                     'format' => 'datetime',
                 ],
-                'username',
+                [
+                    'class' => LinkColumn::className(),
+                    'attribute' => 'username',
+                ],
                 'email:email',
                 [
+                    'class' => SetColumn::className(),
                     'filter' => User::getStatusesArray(),
                     'attribute' => 'status',
-                    'format' => 'raw',
-                    'value' => function ($model, $key, $index, $column) {
-                        /** @var User $model */
-                        /** @var \yii\grid\DataColumn $column */
-                        $value = $model->{$column->attribute};
-                        switch ($value) {
-                            case User::STATUS_ACTIVE:
-                                $class = 'success';
-                                break;
-                            case User::STATUS_WAIT:
-                                $class = 'warning';
-                                break;
-                            case User::STATUS_BLOCKED:
-                            default:
-                                $class = 'default';
-                        };
-                        $html = Html::tag('span', Html::encode($model->getStatusName()), ['class' => 'label label-' . $class]);
-                        return $value === null ? $column->grid->emptyCell : $html;
-                    }
+                    'name' => 'statusName',
+                    'cssCLasses' => [
+                        User::STATUS_ACTIVE => 'success',
+                        User::STATUS_WAIT => 'warning',
+                        User::STATUS_BLOCKED => 'default',
+                    ],
                 ],
-                ['class' => 'yii\grid\ActionColumn',
-                 'contentOptions' => ['style' => 'white-space: nowrap; text-align: center; letter-spacing: 0.1em; max-width: 7em;'],
+                [
+                    'class' => RoleColumn::className(),
+                    'filter' => ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'description'),
+                    'attribute' => 'role',
                 ],
+                ['class' => ActionColumn::className()],
             ],
         ]); ?>
     </div>
