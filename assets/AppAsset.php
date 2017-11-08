@@ -22,6 +22,7 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
 
+        //'AssetsSmarty/plugins/jquery/jquery-2.2.3.min.js',
 
     ];
     public $depends = [

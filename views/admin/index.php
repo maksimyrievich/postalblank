@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute' => 'date_from',
                         'attribute2' => 'date_to',
                         'type' => DatePicker::TYPE_RANGE,
-                        'separator' => 'to',
+                        'separator' => '-',
                         'pluginOptions' => ['format' => 'yyyy-mm-dd']
                     ]),
                     'attribute' => 'created_at',

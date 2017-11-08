@@ -98,7 +98,8 @@ $config = [
         'formatter' => [
             'class' => 'yii\i18n\Formatter',
             'defaultTimeZone' => 'Europe/Moscow',
-            'timeZone' => 'Europe/Moscow',
+            //'timeZone' => 'Europe/Moscow',
+            //'datetimeFormat' => 'full'
         ],
     ],
 
