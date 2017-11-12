@@ -2,6 +2,8 @@
 return [
     //Главное меню сайта
     'NAV_ADMIN' => 'Admin',
+    'NAV_USERS' => 'Users',
+    'NAV_PARSING' => 'Parsing',
     'NAV_HOME' => 'Home',
     'NAV_PLAGINS' => 'Plagins for CMS',
     'NAV_CONTACT' => 'Contact',

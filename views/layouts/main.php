@@ -99,8 +99,12 @@ AppAsset::register($this);
                                 <a href= "<?= Url::to (['/contact']);?>"><i class = "glyphicon glyphicon-send"></i> <?=Yii::t('translate', 'NAV_CONTACT')?></a>
                             </li>
                             <?php if(Yii::$app->user->can(Rbac::PERMISSION_ADMIN_PANEL)): ?>
-                                <li ><!-- FEATURES -->
-                                    <a href="<?= Url::to (['/admin/index']);?>"><i class = "glyphicon glyphicon-registration-mark"></i> <?=Yii::t('translate', 'NAV_ADMIN')?></a>
+                                <li class="dropdown"><!-- FEATURES -->
+                                    <a class="dropdown-toggle" href="#"><i class = "glyphicon glyphicon-registration-mark"></i> <?=Yii::t('translate', 'NAV_ADMIN')?></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="<?= Url::to (['/admin/index']);?>"><i class = "glyphicon glyphicon-user"></i> <?=Yii::t('translate', 'NAV_USERS')?></a></li>
+                                        <li><a href="<?= Url::to (['/parsing/init']);?>"><i class = "glyphicon glyphicon-globe"></i> <?=Yii::t('translate', 'NAV_PARSING')?></a></li>
+                                    </ul>
                                 </li>
                             <?php else :?><?php endif;?>
                             <?php if(Yii::$app->user->isGuest): ?>
@@ -109,7 +113,7 @@ AppAsset::register($this);
                             </li>
                             <?php else :?><?php endif;?>
                             <li ><!-- FEATURES -->
-                                <a href="<?= Url::to (['/account/login']);?>"><i class = "glyphicon glyphicon-user"></i> <?=Yii::t('translate', 'NAV_MY_CABINET')?></a>
+                                <a href="<?= Url::to (['/account/login']);?>"><i class = "glyphicon glyphicon-log-in"></i> <?=Yii::t('translate', 'NAV_MY_CABINET')?></a>
                             </li>
                             <li class="dropdown">
                                 <a class="dropdown-toggle" href="#"><img class="flag-lang" src="<?= $this->render('select-flag')?>" width="16" height="11" alt="lang" />
@@ -118,7 +122,7 @@ AppAsset::register($this);
                                 <ul class="dropdown-menu">
                                     <li><a  href="<?= Url::to([Yii::$app->controller->route, 'language' => 'en']);?>"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/us.png")?>" width="16" height="11" alt="lang" /> <?=Yii::t('translate', 'NAV_LANG_ENGLISH')?></a></li>
                                     <li><a  href="<?= Url::to([Yii::$app->controller->route, 'language' => 'ru']);?>"><img class="flag-lang" src="<?= Url::to("@web/web/AssetsSmarty/images/flags/ru.png")?>" width="16" height="11" alt="lang" /> <?=Yii::t('translate', 'NAV_LANG_RUSSIAN')?></a></li>
-                                    </ul>
+                                </ul>
                             </li>
                         </ul>
                     </nav>
