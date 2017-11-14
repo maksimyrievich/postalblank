@@ -21,7 +21,8 @@
         "codemix/yii2-localeurls": "^1.4",
         "kartik-v/yii2-widget-datepicker": "*",
         "kartik-v/yii2-field-range": "*",
-        "bower-asset/jquery": "1.*"
+        "bower-asset/jquery": "1.*",
+        "electrolinux/phpquery": "^0.9.6"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

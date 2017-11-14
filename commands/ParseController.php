@@ -9,16 +9,18 @@ use yii\console\Controller;
 
 class ParseController extends Controller {
 
-    public function actionIndex()
+    public function actionInit()
     {
-        echo " yii parse/init - parsit URL. Rezultat '/runtime/parse/parseURL'" . PHP_EOL;
+        echo " yii parse/start - parsit URL. Rezultat '/runtime/parse/parseURL'" . PHP_EOL;
     }
 
-    public function actionInit ()
+    public function actionStart ()
     {
-        $url = $this->prompt('Eenter the site URL:', ['required' => true]);
+        $url = $this->prompt('Enter the site URL:', ['required' => true]);
+        $filename = $this->prompt('Enter the create file name:', ['required' => true]);
         $data = $this->getSite($url);
-        file_put_contents(Yii::$app->basePath.'/runtime/parse/parseURL', $data);
+        file_put_contents(Yii::$app->basePath.'/runtime/parse/'.$filename, $data);
+        $this->stdout('Done!', PHP_EOL);    //Выводим в консоли сообщение о завершении команды
     }
 
     //Функция getSite принимает первым параметром URL адрес страницы сайта, которую нам нужно скачать.

@@ -1,4 +1,7 @@
 <?php
 
 
-var_dump( $body);
+//echo '<pre>' . print_r($body, true) .'</pre>' ;
+
+echo ($body);
+echo ($name);
