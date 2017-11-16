@@ -11,7 +11,7 @@ class ParseController extends Controller {
 
     public function actionInit()
     {
-        echo " yii parse/start - parsit URL. Rezultat '/runtime/parse/parseURL'" . PHP_EOL;
+        echo " yii parse/start - parsit URL. Rezultat '/parse/parseURL'" . PHP_EOL;
     }
 
     public function actionStart ()
@@ -19,7 +19,7 @@ class ParseController extends Controller {
         $url = $this->prompt('Enter the site URL:', ['required' => true]);
         $filename = $this->prompt('Enter the create file name:', ['required' => true]);
         $data = $this->getSite($url);
-        file_put_contents(Yii::$app->basePath.'/runtime/parse/'.$filename, $data);
+        file_put_contents(Yii::$app->basePath.'/parse/'.$filename, $data);
         $this->stdout('Done!', PHP_EOL);    //Выводим в консоли сообщение о завершении команды
     }
 
